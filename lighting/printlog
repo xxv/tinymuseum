@@ -1,0 +1,11 @@
+attempting to print light bar connectors
+	printed with 0 extrusion_offset, slightly too large.
+		male plug width
+			7.15mm after light filing
+		female socket width
+			6.75mm
+	added extrusion_offset
+		0.25mm
+			too loose
+		0.1mm
+			perfect!
