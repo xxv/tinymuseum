@@ -36,6 +36,26 @@ contact_channel_separation=3;
 // How much extra to add to account for extrusion inaccuracies. This makes the male smaller and the female larger. 0.1 works well on a Lulzbot 0.5mm nozzle, 3mm filament.
 extrusion_offset=0.1;
 
+
+male_contact_z=male_z-contact_channel_z-wall_thickness+diff_offset-extrusion_offset*2;
+
+module contact_channel(x,y,z,recess,end_lock_z,end_lock_z_offset,end_lock_y_offset){
+        // one contact left
+        translate([(wall_thickness + x/2)-contact_channel_separation/2-contact_channel_x/2,recess,z+wall_thickness]){
+            cube([contact_channel_x,contact_channel_y,contact_channel_z]);
+	    translate([0,end_lock_y_offset,end_lock_z_offset-wall_thickness]){
+		cube([contact_channel_x,contact_channel_x,end_lock_z]);
+	    }
+        }
+        // right contact
+        translate([(wall_thickness + x/2)+contact_channel_separation/2-contact_channel_x/2,recess,z+wall_thickness]){
+            cube([contact_channel_x,contact_channel_y,contact_channel_z]);
+	    translate([0,end_lock_y_offset,end_lock_z_offset-wall_thickness]){
+		cube([contact_channel_x,contact_channel_x,end_lock_z]);
+	    }
+        }
+}
+
 module female() {
     difference() {
 	// Outer casing
@@ -47,19 +67,8 @@ module female() {
         translate([wall_thickness,-diff_offset,wall_thickness]){
             cube([male_x + extrusion_offset*2,male_y+diff_offset,male_z + extrusion_offset*2]);
         }
-	contact_channel(male_x +extrusion_offset*2,male_y,male_z+ extrusion_offset*2,contact_channel_recess_female);
+	contact_channel(male_x +extrusion_offset*2,male_y,male_z+ extrusion_offset*2,contact_channel_recess_female,male_z + wall_thickness*2+female_z_extra+extrusion_offset*2,0,wall_thickness);
     }
-}
-
-module contact_channel(x,y,z,recess){
-        // one contact left
-        translate([(wall_thickness + x/2)-contact_channel_separation/2-contact_channel_x/2,recess,z+wall_thickness]){
-            cube([contact_channel_x,contact_channel_y,contact_channel_z]);
-        }
-        // right contact
-        translate([(wall_thickness + x/2)+contact_channel_separation/2-contact_channel_x/2,recess,z+wall_thickness]){
-            cube([contact_channel_x,contact_channel_y,contact_channel_z]);
-        }
 }
 
 module male(){
@@ -72,17 +81,19 @@ module male(){
                 cube([male_x+wall_thickness*2 + extrusion_offset*2, male_y, male_z+wall_thickness+male_z_extra+extrusion_offset*2]);
             }
         }
-    contact_channel(male_x-extrusion_offset*2,male_y,male_z-contact_channel_z-wall_thickness+diff_offset-extrusion_offset*2,contact_channel_recess_male);
+    contact_channel(male_x-extrusion_offset*2,male_y, male_contact_z, contact_channel_recess_male, male_z, -male_contact_z,0);
     }
 }
 
+rotation=-90;
+
 // Rotating them -90 degrees made the prints come out the best.
-rotate([-90,0,0]){
+rotate([rotation,0,0]){
     female();
 }
 
-translate([0,15,0]){
-    rotate([-90,0,0]){
+translate([15,0,0]){
+    rotate([rotation,0,0]){
 	male();
     }
 }
