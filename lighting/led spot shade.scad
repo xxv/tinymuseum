@@ -1,6 +1,6 @@
-led_diameter = 6;
+led_diameter = 6.5;
 interior_clearance = 1;
-wall_thickness = 1;
+wall_thickness = .75;
 resolution = 40;
 shade_height = 12;
 top_hole = 2;
