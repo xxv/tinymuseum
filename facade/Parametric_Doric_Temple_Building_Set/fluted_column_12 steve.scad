@@ -1,6 +1,6 @@
 coldiameter = 17;
 mod = coldiameter;
-ch = mod*7;		//column height
+ch = mod*9.5;		//column height
 cr = mod/2;		//column radius
 nf = 20;		//number of flutes
 fr = 1.5;		//flute radius
@@ -20,8 +20,7 @@ has_abacus = 1; //1 for abacus 0 for no abacus
 $fs = 1;
 aa = 6;
 
-scale(1.046){
-	intersection(){
+scale(1.494){
 	difference(){
 		union(){
 			base();
@@ -31,8 +30,6 @@ scale(1.046){
  		translate([0,-50,-20]){
 			cube([100,100,200]);
 		}
-	}
-	cube([100,100,00],center=true);
 	}
 }
 
