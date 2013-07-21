@@ -1,6 +1,7 @@
-// Male and female sockets for Ikea LEDBERG LED strips.
-// These are designed to be filled with 22 gauge solid core wire (or similar).
-// All units are in mm.
+// Male and female sockets for Ikea LEDBERG LED strips.  These are designed to
+// be filled with 22 gauge solid core wire (or similar).  Multi-filament wire
+// also works if you twist it. It'll work even better if you tin it. All units
+// are in mm.
 
 // Size of male connector. This is the base connector size.
 male_x=7;
@@ -35,7 +36,6 @@ contact_channel_separation=3;
 
 // How much extra to add to account for extrusion inaccuracies. This makes the male smaller and the female larger. 0.1 works well on a Lulzbot 0.5mm nozzle, 3mm filament.
 extrusion_offset=0.1;
-
 
 male_contact_z=male_z-contact_channel_z-wall_thickness+diff_offset-extrusion_offset*2;
 
