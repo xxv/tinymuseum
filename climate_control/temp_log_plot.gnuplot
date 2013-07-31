@@ -7,13 +7,13 @@ set format x "%d %H:%M"
 set format y "%g%%"
 set format y2 "%0.1f°C"
 unset key
-set ylabel "Humidity" textcolor rgb 'red'
-set y2label "Temperature" textcolor rgb 'blue'
+set ylabel "Humidity" textcolor rgb 'blue'
+set y2label "Temperature" textcolor rgb 'red'
 set ytics nomirror
 set y2tics
 set grid x mxtics
-set style line 1 lt rgb "red" lw 3
-set style line 2 lt rgb "blue" lw 3
+set style line 1 lt rgb "blue" lw 3
+set style line 2 lt rgb "red" lw 3
 
 # Output format
 set terminal png enhanced size 1200,400
