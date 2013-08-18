@@ -5,13 +5,13 @@ i_height=30;
 wall_thickness=3;
 
 // Inner diameter
-i_diameter=81;
+i_diameter=95;
 
 // Wall-mount thickness
 wm_thickness=2;
 
 // The size of the tooth
-tooth_x=2;
+tooth_x=3;
 tooth_y=4;
 tooth_z=2;
 tooth_z_offset=2;
@@ -22,7 +22,7 @@ tooth_channel_mult = sqrt(2)*2;
 // The slot for the lock hasp, x
 slot_x=8;
 // The slot for the lock hasp, y
-slot_y=33;
+slot_y=35;
 
 // Height above the channel to allow for screwing
 screw_height=10;
@@ -94,7 +94,7 @@ module wall_mount(){
       // Screw mechanism
       rotate([0,0,screw_angle_offset]){
 	translate([0,0,wm_thickness])
-	  cylinder(h=screw_height+ tooth_z_offset+tooth_z+wm_thickness, r=i_diameter/2-wall_thickness-behind_channel - clearance);
+	  cylinder(h=screw_height+ tooth_z_offset+tooth_z+wm_thickness, r=i_diameter/2 - behind_channel - tooth_x - clearance);
 	tooth_channel();
 	rotate([0,0,180])
 	  tooth_channel();
