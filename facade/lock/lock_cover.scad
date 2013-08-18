@@ -19,12 +19,20 @@ tooth_z_offset=2;
 // How much wider the channel is (cross-section) than the tooth
 tooth_channel_mult = sqrt(2)*2;
 
+// The slot for the lock hasp, x
 slot_x=8;
+// The slot for the lock hasp, y
 slot_y=33;
 
 // Height above the channel to allow for screwing
 screw_height=10;
+// How steep an angle the screw is
 screw_angle=45;
+// How much to rotate the whole screw mechanism
+screw_angle_offset=90;
+
+// The length of the notch to lock the screw in place.
+screw_lock=5;
 
 // Thickness behind the channel
 behind_channel = 1;
@@ -84,17 +92,18 @@ module wall_mount(){
       cylinder(h=screw_height+ tooth_z_offset + tooth_z+wm_thickness,r=i_diameter/2 - clearance);
 
       // Screw mechanism
-      rotate([0,0,90]){
+      rotate([0,0,screw_angle_offset]){
 	translate([0,0,wm_thickness])
 	  cylinder(h=screw_height+ tooth_z_offset+tooth_z+wm_thickness, r=i_diameter/2-wall_thickness-behind_channel - clearance);
 	tooth_channel();
 	rotate([0,0,180])
 	  tooth_channel();
+	// Remove unnecessary walls.
 	translate([-i_diameter/2,-i_diameter/4,wm_thickness])
 	  cube([i_diameter,i_diameter/2,i_height]);
-	rotate([0,0,-screw_angle + 5])
-	translate([-i_diameter/2,-i_diameter/4,wm_thickness])
-	  cube([i_diameter,i_diameter/2,i_height]);
+	rotate([0,0,-screw_angle])
+	  translate([-i_diameter/2,-i_diameter/4,wm_thickness])
+	    cube([i_diameter,i_diameter/2,i_height]);
       }
 
       // Slot for lock hasp
@@ -106,11 +115,25 @@ module wall_mount(){
 
 module tooth_channel(){
   channel_size=tooth_y * tooth_channel_mult;
+  union(){
+    translate([0,0,tooth_z_offset]){
+      linear_extrude(height=wm_thickness + tooth_z+screw_height, convexity=10, twist = screw_angle){
+      translate([-channel_size/2,tooth_x_offset - clearance,0]){
+	square([channel_size, tooth_x + wall_thickness]);
+      }
+    }
+  }
 
-  translate([0,0,tooth_z_offset])
-  linear_extrude(height=wm_thickness + tooth_z+screw_height, convexity=10, twist = screw_angle){
-    translate([-channel_size/2,tooth_x_offset - clearance,0]){
-      square([channel_size, tooth_x + wall_thickness]);
+  intersection(){
+    difference(){
+      translate([0,0,wm_thickness])
+	cylinder(h=tooth_z, r=i_diameter/2+clearance);
+      translate([0,0,-2.5])
+	cylinder(h=tooth_z*5, r=i_diameter/2-wall_thickness+clearance);
+    }
+    rotate([0,0,-screw_angle_offset+screw_lock])
+      translate([-i_diameter/2,-screw_lock/2,wm_thickness])
+	cube([i_diameter,screw_lock,i_height]);
     }
   }
 }
