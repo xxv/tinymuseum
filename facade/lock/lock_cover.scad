@@ -1,0 +1,112 @@
+// Inner height
+i_height=30;
+
+// Thickness of the walls
+wall_thickness=3;
+
+// Inner diameter
+i_diameter=81;
+
+// Wall-mount thickness
+wm_thickness=2;
+
+// The size of the tooth
+tooth_x=2;
+tooth_y=4;
+tooth_z=2;
+tooth_z_offset=2;
+
+// How much wider the channel is (cross-section) than the tooth
+tooth_channel_mult = 5;
+
+slot_x=8;
+slot_y=33;
+
+// Height above the channel to allow for screwing
+screw_height=10;
+screw_angle=45;
+
+// Thickness behind the channel
+behind_channel = 1;
+
+// Clearance between 3D printed parts that need to touch
+clearance=0.75;
+
+// Separation between the wall side and the cover
+part_separation=5;
+
+// LQ
+//$fa=1;
+//$fs=1;
+
+// HQ
+$fa=.5;
+$fs=.1;
+
+tooth_x_offset=i_diameter/2-tooth_x/2;
+
+//cover();
+
+// Separate the two parts
+translate([i_diameter + wall_thickness + part_separation,0,0]){
+  wall_mount();
+}
+
+module tooth(){
+    translate([tooth_x_offset,0,i_height-tooth_z_offset-tooth_z/2+ wall_thickness]){
+      cube([tooth_x,tooth_y,tooth_z], center=true);
+    }
+}
+
+module cover(){
+  // Outer cover
+  union(){
+    difference(){
+      cylinder(h=i_height+wall_thickness,r=i_diameter/2+wall_thickness);
+      translate([0,0,wall_thickness])
+      cylinder(h=i_height,r=i_diameter/2);
+    }
+    rotate([0,0,180])
+      tooth();
+    tooth();
+  }
+}
+
+module wall_mount(){
+  // Inner holder
+  union(){
+    difference(){
+      cylinder(h=screw_height+ tooth_z_offset + tooth_z+wm_thickness,r=i_diameter/2 - clearance);
+
+      // Screw mechanism
+      rotate([0,0,90]){
+	translate([0,0,wm_thickness])
+	  cylinder(h=screw_height+ tooth_z_offset+tooth_z+wm_thickness, r=i_diameter/2-wall_thickness-behind_channel - clearance);
+	tooth_channel();
+	rotate([0,0,180])
+	  tooth_channel();
+	translate([-i_diameter/2,-i_diameter/4,wm_thickness])
+	  cube([i_diameter,i_diameter/2,i_height]);
+	rotate([0,0,-screw_angle + 5])
+	translate([-i_diameter/2,-i_diameter/4,wm_thickness])
+	  cube([i_diameter,i_diameter/2,i_height]);
+      }
+
+      // Slot for lock hasp
+      translate([-slot_x/2,i_diameter/2-slot_y-wall_thickness,0])
+	cube([slot_x,slot_y,wm_thickness+clearance]);
+    }
+  }
+}
+
+module tooth_channel(){
+  channel_size=tooth_y * tooth_channel_mult;
+
+  translate([0,0,tooth_z_offset])
+  linear_extrude(height=wm_thickness + tooth_z+screw_height, convexity=10, twist = screw_angle){
+    translate([-channel_size/2,tooth_x_offset-tooth_x - clearance,0]){
+      square([channel_size, tooth_x + wall_thickness]);
+    }
+  }
+}
+
