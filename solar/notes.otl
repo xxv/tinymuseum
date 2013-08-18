@@ -1,0 +1,29 @@
+Solar Panel
+	833mA
+	12V
+	10W
+Battery
+	10A hr
+	12V
+	120W hr
+Raspberry Pi A
+	300mA
+	5V
+	1.5W
+lighting
+	total
+		spots
+			330mW
+		lights
+			1560mW
+		1890mW
+		~2W
+	Ikea lights
+		130 mA ?
+			figure from comment in http://www.instructables.com/id/Bias-lighting-using-the-IKEA-Ledberg-light/
+		12V
+		1.56 W
+	LED spots
+		20mA * n
+		3.3V
+		66mW * n
