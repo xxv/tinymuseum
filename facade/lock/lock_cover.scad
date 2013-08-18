@@ -17,7 +17,7 @@ tooth_z=2;
 tooth_z_offset=2;
 
 // How much wider the channel is (cross-section) than the tooth
-tooth_channel_mult = 5;
+tooth_channel_mult = sqrt(2)*2;
 
 slot_x=8;
 slot_y=33;
@@ -30,7 +30,7 @@ screw_angle=45;
 behind_channel = 1;
 
 // Clearance between 3D printed parts that need to touch
-clearance=0.75;
+clearance=0.50;
 
 // Separation between the wall side and the cover
 part_separation=5;
@@ -43,9 +43,9 @@ part_separation=5;
 $fa=.5;
 $fs=.1;
 
-tooth_x_offset=i_diameter/2-tooth_x/2;
+tooth_x_offset=i_diameter/2-tooth_x;
 
-//cover();
+cover();
 
 // Separate the two parts
 translate([i_diameter + wall_thickness + part_separation,0,0]){
@@ -53,9 +53,14 @@ translate([i_diameter + wall_thickness + part_separation,0,0]){
 }
 
 module tooth(){
-    translate([tooth_x_offset,0,i_height-tooth_z_offset-tooth_z/2+ wall_thickness]){
-      cube([tooth_x,tooth_y,tooth_z], center=true);
+  translate([tooth_x_offset,-tooth_y/2,i_height-tooth_z_offset-tooth_z+ wall_thickness-tooth_z]){
+    difference(){
+      cube([tooth_x+clearance, tooth_y, tooth_z*2]);
+    translate([-tooth_y * sqrt(2)/2, -clearance/2, -tooth_y * sqrt(2)/2+tooth_y/2])
+    rotate([0, 45, 0])
+      cube([tooth_y,tooth_y+clearance,tooth_z*2]);
     }
+  }
 }
 
 module cover(){
@@ -64,7 +69,7 @@ module cover(){
     difference(){
       cylinder(h=i_height+wall_thickness,r=i_diameter/2+wall_thickness);
       translate([0,0,wall_thickness])
-      cylinder(h=i_height,r=i_diameter/2);
+      cylinder(h=i_height+clearance,r=i_diameter/2);
     }
     rotate([0,0,180])
       tooth();
@@ -104,7 +109,7 @@ module tooth_channel(){
 
   translate([0,0,tooth_z_offset])
   linear_extrude(height=wm_thickness + tooth_z+screw_height, convexity=10, twist = screw_angle){
-    translate([-channel_size/2,tooth_x_offset-tooth_x - clearance,0]){
+    translate([-channel_size/2,tooth_x_offset - clearance,0]){
       square([channel_size, tooth_x + wall_thickness]);
     }
   }
