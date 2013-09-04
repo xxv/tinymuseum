@@ -24,6 +24,8 @@ lighting
 		12V
 		1.56 W
 	LED spots
+		For Invisible Cities
+			n=6
 		20mA * n
 		3.3V
 		66mW * n

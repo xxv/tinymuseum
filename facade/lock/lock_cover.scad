@@ -1,5 +1,5 @@
 // Inner height
-i_height=30;
+i_height=40;
 
 // Thickness of the walls
 wall_thickness=3;
