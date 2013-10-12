@@ -60,7 +60,7 @@ rotate([-180,0,0]){
 module magnet_holder(){
 	difference(){
 		// The main body of the holder.
-		cylinder(h=body_height,r=body_radius,$fn=50);
+		cylinder(h=body_height,r=body_radius,$fn=150);
 
 		// Polarity key (this marks the cathode).
 		translate([body_radius - key_size,-body_radius,0])
