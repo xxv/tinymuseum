@@ -31,3 +31,12 @@ climate of electronics
 	cannot fully seal battery; needs ventilation
 	raspberry pi operating range?
 	solar operating range?
+	solution
+		leave battery out
+		raspberry pi
+			fully-seal to prevent dust/dirt/bugs
+			monitor temperature
+solar thermal
+	number below is from MA-solar-radiation.pdf
+	(960 btu/ft^2/day) * (16in 10in)
+		13.025381W

@@ -1,7 +1,12 @@
 Solar Panel
-	833mA
-	12V
 	10W
+		833mA
+		12V
+		10W
+	50W
+		12V
+		50W
+		4A
 Battery
 	10A hr
 	12V
