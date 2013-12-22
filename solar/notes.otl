@@ -34,3 +34,30 @@ lighting
 		20mA * n
 		3.3V
 		66mW * n
+parts
+	http://www.eco-worthy.com
+calculations
+	https://eosweb.larc.nasa.gov/sse/
+	http://www.gaisma.com/en/
+	https://eosweb.larc.nasa.gov/cgi-bin/sse/grid.cgi?email=skip@larc.nasa.gov
+	http://www.batterystuff.com/kb/tools/solar-calculator.html
+Solar regulator
+	Tracer
+	monitor interface
+		baud
+			9600
+		pinout
+			RJ45
+			1 +12V
+			2 Gnd
+			3 +12V
+			4 Gnd
+			5 TXD
+			6 RXD
+			7 Gnd
+			8 Gnd
+		wire format
+			TTL-232
+			1 = +3.3
+			0 = 0v
+		connect to raspberry pi
