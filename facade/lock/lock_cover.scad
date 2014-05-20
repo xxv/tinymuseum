@@ -1,3 +1,7 @@
+// A cover for a lock.
+// This has two parts: the part that stays against the door and
+// the cover.
+
 // Inner height
 i_height=40;
 
@@ -5,13 +9,13 @@ i_height=40;
 wall_thickness=3;
 
 // Inner diameter
-i_diameter=95;
+i_diameter=100;
 
 // Wall-mount thickness
 wm_thickness=2;
 
 // The size of the tooth
-tooth_x=3;
+tooth_x=4;
 tooth_y=4;
 tooth_z=2;
 tooth_z_offset=2;
@@ -20,9 +24,11 @@ tooth_z_offset=2;
 tooth_channel_mult = sqrt(2)*2;
 
 // The slot for the lock hasp, x
-slot_x=8;
+slot_x=10;
 // The slot for the lock hasp, y
-slot_y=35;
+slot_y=42;
+// The offset of the slot from the edge
+slot_offset = 2;
 
 // Height above the channel to allow for screwing
 screw_height=10;
@@ -35,7 +41,7 @@ screw_angle_offset=90;
 screw_lock=5;
 
 // Thickness behind the channel
-behind_channel = 1;
+behind_channel = 2;
 
 // Clearance between 3D printed parts that need to touch
 clearance=0.50;
@@ -107,7 +113,7 @@ module wall_mount(){
       }
 
       // Slot for lock hasp
-      translate([-slot_x/2,i_diameter/2-slot_y-wall_thickness,0])
+      translate([-slot_x/2,i_diameter/2-slot_y-wall_thickness - slot_offset,0])
 	cube([slot_x,slot_y,wm_thickness+clearance]);
     }
   }
