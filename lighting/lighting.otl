@@ -1,3 +1,9 @@
 LEDBERG
 	0.2A at 12v for 3 strips
 		http://littlehouse.co/2012/05/led-lighting-from-ikea-adapted-for-12-volt-off-grid/
+Electronics box
+	has screw terminals for all connections
+	is enclosed in 3D printed box (in this directory)
+	RadioShack LM7812C for LEDBERG voltage regulation
+		screwed a bit of metal strapping to it for a heat sink
+	R-785.0-1.0 from Digikey DC to DC 5V converter for the track lighting
