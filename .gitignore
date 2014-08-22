@@ -2,3 +2,4 @@ facade/prints
 *.gcode
 facade/Parametric_Doric_Temple_Building_Set/*.stl
 docs/*.pdf
+archive/
