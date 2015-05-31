@@ -1,0 +1,9 @@
+_autosave*
+gerbers/
+*bak
+*.ses
+*.dsn
+*.bin
+*.xml
+*.csv
+*.net

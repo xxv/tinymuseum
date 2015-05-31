@@ -1,0 +1,101 @@
+Cmp-Mod V01 Created by Cvpcb (2015-05-23 BZR 5679)-product   date = Sun 31 May 2015 01:35:34 AM EDT
+
+BeginCmp
+TimeStamp = /556367CB;
+Reference = CON1;
+ValeurCmp = UNREG_VIN;
+IdModule  = Connect:BARREL_JACK;
+EndCmp
+
+BeginCmp
+TimeStamp = /556335C9;
+Reference = J1;
+ValeurCmp = RJ45_TRACER;
+IdModule  = Connect:RJ45_8;
+EndCmp
+
+BeginCmp
+TimeStamp = /55633551;
+Reference = P1;
+ValeurCmp = CONN_13X2;
+IdModule  = Socket_Strips:Socket_Strip_Straight_2x13;
+EndCmp
+
+BeginCmp
+TimeStamp = /5563C524;
+Reference = P2;
+ValeurCmp = I2C_2;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x04;
+EndCmp
+
+BeginCmp
+TimeStamp = /5563CE49;
+Reference = P3;
+ValeurCmp = I2C_1;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x04;
+EndCmp
+
+BeginCmp
+TimeStamp = /55644BD8;
+Reference = P4;
+ValeurCmp = 12V_LOAD;
+IdModule  = Connectors_Molex:Connector_Molex_PicoBlade_53048-0210;
+EndCmp
+
+BeginCmp
+TimeStamp = /55644D44;
+Reference = P5;
+ValeurCmp = 5V_LOAD;
+IdModule  = Connectors_Molex:Connector_Molex_PicoBlade_53048-0210;
+EndCmp
+
+BeginCmp
+TimeStamp = /5563DC4D;
+Reference = Q1;
+ValeurCmp = IRFZ44N;
+IdModule  = Power_Integrations:TO-220;
+EndCmp
+
+BeginCmp
+TimeStamp = /5563E10D;
+Reference = Q2;
+ValeurCmp = IRFZ44N;
+IdModule  = Power_Integrations:TO-220;
+EndCmp
+
+BeginCmp
+TimeStamp = /5563E3B0;
+Reference = R1;
+ValeurCmp = 10K;
+IdModule  = Resistors_SMD:R_1206_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /556414C6;
+Reference = R2;
+ValeurCmp = 10K;
+IdModule  = Resistors_SMD:R_1206_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = /556345AA;
+Reference = U1;
+ValeurCmp = LM7812CT;
+IdModule  = Power_Integrations:TO-220;
+EndCmp
+
+BeginCmp
+TimeStamp = /5563AB33;
+Reference = U2;
+ValeurCmp = R-785;
+IdModule  = Converters_DCDC_ACDC:DCDC-Conv_Recom_R-78HBxx-0.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /5563CDCE;
+Reference = U3;
+ValeurCmp = R-785;
+IdModule  = Converters_DCDC_ACDC:DCDC-Conv_Recom_R-78HBxx-0.5;
+EndCmp
+
+EndListe
