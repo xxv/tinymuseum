@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:museum-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -69,8 +68,6 @@ F 3 "" H 9450 4250 60  0000 C CNN
 $EndComp
 Text GLabel 7700 3250 2    60   Output ~ 0
 RASPI_TXD
-Wire Wire Line
-	6900 3250 7700 3250
 Text GLabel 6900 3350 2    60   Input ~ 0
 RASPI_RXD
 Text GLabel 6100 2950 0    60   UnSpc ~ 0
@@ -83,24 +80,10 @@ Text GLabel 5350 3250 0    60   BiDi ~ 0
 RASPI_GPIO_04
 Text GLabel 9300 4850 3    60   UnSpc ~ 0
 TRACER_12V
-Wire Wire Line
-	9700 4700 9700 4850
-Wire Wire Line
-	9800 4700 9800 5500
-Wire Wire Line
-	9200 4700 9200 5500
-Wire Wire Line
-	9300 4700 9300 4850
-Wire Wire Line
-	9100 4700 9100 4850
 Text GLabel 9500 4850 3    60   Output ~ 0
 TRACER_TXD
 Text GLabel 9600 5500 3    60   Input ~ 0
 TRACER_RXD
-Wire Wire Line
-	9600 5500 9600 4700
-Wire Wire Line
-	9500 4700 9500 4850
 Text GLabel 6350 4450 0    60   Output ~ 0
 RASPI_TXD
 Text GLabel 6350 4600 0    60   Input ~ 0
@@ -109,16 +92,6 @@ Text GLabel 6650 4600 2    60   Output ~ 0
 TRACER_TXD
 Text GLabel 6650 4450 2    60   Input ~ 0
 TRACER_RXD
-Wire Wire Line
-	6350 4600 6650 4600
-Wire Wire Line
-	6650 4450 6350 4450
-Wire Wire Line
-	10000 3900 10000 4100
-Wire Wire Line
-	5350 3250 6100 3250
-Wire Wire Line
-	6100 3050 5350 3050
 $Comp
 L LM7812CT U1
 U 1 1 556345AA
@@ -152,14 +125,8 @@ F 3 "" H 2000 4550 60  0000 C CNN
 	1    2000 4550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2000 4400 2000 4550
-Wire Wire Line
-	2400 4100 2550 4100
 Text GLabel 9100 4850 3    60   UnSpc ~ 0
 TRACER_12V
-Wire Wire Line
-	1500 4100 1600 4100
 Text GLabel 1500 4100 0    60   Input ~ 0
 12V_BATT
 Text GLabel 1850 1000 2    60   Input ~ 0
@@ -186,10 +153,6 @@ F 3 "" H 1250 1100 60  0000 C CNN
 	1    1250 1100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1850 1000 1550 1000
-Wire Wire Line
-	1550 1200 1850 1200
 Text GLabel 1500 3700 0    60   Input ~ 0
 12V_BATT
 $Comp
@@ -214,19 +177,6 @@ F 3 "" H 2550 3600 60  0000 C CNN
 	1    2550 3600
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2100 3700 2550 3700
-Wire Wire Line
-	2550 3700 2550 3600
-Wire Wire Line
-	1550 1100 1650 1100
-Wire Wire Line
-	1650 1100 1650 1200
-Connection ~ 1650 1200
-Wire Wire Line
-	1900 3700 1500 3700
-Wire Wire Line
-	9400 4700 9400 5500
 $Comp
 L R-785 U2
 U 1 1 5563AB33
@@ -363,14 +313,6 @@ F 3 "" H 9950 3300 60  0000 C CNN
 	1    9950 3300
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	9200 3400 9450 3400
-Wire Wire Line
-	9200 3300 9950 3300
-Wire Wire Line
-	9200 3200 9450 3200
-Wire Wire Line
-	9200 3100 9450 3100
 Text GLabel 9450 3400 2    60   UnSpc ~ 0
 +3.3V
 $Comp
@@ -402,14 +344,6 @@ F 3 "" H 9950 2800 60  0000 C CNN
 	1    9950 2800
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	9200 2800 9950 2800
-Wire Wire Line
-	9200 2900 9450 2900
-Wire Wire Line
-	9200 2700 9450 2700
-Wire Wire Line
-	9200 2600 9450 2600
 $Comp
 L GND #PWR017
 U 1 1 5563B103
@@ -434,10 +368,6 @@ F 3 "" H 2000 2250 60  0000 C CNN
 $EndComp
 Text GLabel 1750 2750 0    60   Input ~ 0
 12V_BATT
-Wire Wire Line
-	1750 2750 1900 2750
-Wire Wire Line
-	1900 2750 1900 2650
 $Comp
 L GND #PWR018
 U 1 1 5563D296
@@ -451,16 +381,8 @@ F 3 "" H 2000 2650 60  0000 C CNN
 $EndComp
 Text GLabel 7100 2950 2    60   Input ~ 0
 RASPI_5V
-Wire Wire Line
-	6900 2950 6900 3050
-Wire Wire Line
-	6900 2950 7100 2950
 Text GLabel 2200 2750 2    60   Input ~ 0
 RASPI_5V
-Wire Wire Line
-	2100 2650 2100 2750
-Wire Wire Line
-	2100 2750 2200 2750
 $Comp
 L IRF540N Q1
 U 1 1 5563DC4D
@@ -527,21 +449,8 @@ F 3 "" H 4650 1150 60  0000 C CNN
 	1    4650 1150
 	-1   0    0    1   
 $EndComp
-$Comp
-L R R1
-U 1 1 5563E3B0
-P 3300 1950
-F 0 "R1" V 3380 1950 50  0000 C CNN
-F 1 "10K" V 3300 1950 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" V 3230 1950 30  0001 C CNN
-F 3 "" H 3300 1950 30  0000 C CNN
-	1    3300 1950
-	-1   0    0    1   
-$EndComp
 Text GLabel 6050 3750 0    60   UnSpc ~ 0
 +3.3V
-Wire Wire Line
-	6050 3750 6100 3750
 $Comp
 L R R2
 U 1 1 556414C6
@@ -561,41 +470,25 @@ Text GLabel 6100 3550 0    60   BiDi ~ 0
 RASPI_GPIO_21
 Text GLabel 5350 3650 0    60   BiDi ~ 0
 RASPI_GPIO_22
-Wire Wire Line
-	5350 3650 6100 3650
-Wire Wire Line
-	5350 3450 6100 3450
 Text GLabel 7700 3650 2    60   BiDi ~ 0
 RASPI_GPIO_23
 Text GLabel 6900 3750 2    60   BiDi ~ 0
 RASPI_GPIO_24
-Wire Wire Line
-	7700 3650 6900 3650
 Text GLabel 7700 3450 2    60   BiDi ~ 0
 RASPI_GPIO_18
-Wire Wire Line
-	7700 3450 6900 3450
 Text GLabel 7700 3950 2    60   BiDi ~ 0
 RASPI_GPIO_25
 Text GLabel 6900 4050 2    60   BiDi ~ 0
 RASPI_GPIO_08
 Text GLabel 7700 4150 2    60   BiDi ~ 0
 RASPI_GPIO_07
-Wire Wire Line
-	7700 4150 6900 4150
-Wire Wire Line
-	6900 3950 7700 3950
 Text GLabel 5350 3850 0    60   BiDi ~ 0
 RASPI_GPIO_10
 Text GLabel 6100 3950 0    60   BiDi ~ 0
 RASPI_GPIO_09
 Text GLabel 5350 4050 0    60   BiDi ~ 0
 RASPI_GPIO_08
-Wire Wire Line
-	5350 3850 6100 3850
-Wire Wire Line
-	6100 4050 5350 4050
-Text GLabel 3300 2100 3    60   Input ~ 0
+Text GLabel 3100 1900 3    60   Input ~ 0
 RASPI_GPIO_24
 $Comp
 L CONN_01X02 P4
@@ -608,8 +501,6 @@ F 3 "" H 3550 950 60  0000 C CNN
 	1    3550 950 
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	3600 1150 3600 1550
 $Comp
 L CONN_01X02 P5
 U 1 1 55644D44
@@ -621,10 +512,138 @@ F 3 "" H 4700 950 60  0000 C CNN
 	1    4700 950 
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	4750 1150 4750 1550
 Text Label 3600 1400 0    60   ~ 0
 12V_GND_SW
 Text Label 4750 1400 0    60   ~ 0
 5V_GND_SW
+$Comp
+L +5V #PWR?
+U 1 1 557A6041
+P 3100 1400
+F 0 "#PWR?" H 3100 1250 50  0001 C CNN
+F 1 "+5V" H 3100 1540 50  0000 C CNN
+F 2 "" H 3100 1400 60  0000 C CNN
+F 3 "" H 3100 1400 60  0000 C CNN
+	1    3100 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R?
+U 1 1 557A607D
+P 3100 1550
+F 0 "R?" V 3180 1550 50  0000 C CNN
+F 1 "10K" V 3100 1550 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 3030 1550 30  0001 C CNN
+F 3 "" H 3100 1550 30  0000 C CNN
+	1    3100 1550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6900 3250 7700 3250
+Wire Wire Line
+	9700 4700 9700 4850
+Wire Wire Line
+	9800 4700 9800 5500
+Wire Wire Line
+	9200 4700 9200 5500
+Wire Wire Line
+	9300 4700 9300 4850
+Wire Wire Line
+	9100 4700 9100 4850
+Wire Wire Line
+	9600 5500 9600 4700
+Wire Wire Line
+	9500 4700 9500 4850
+Wire Wire Line
+	6350 4600 6650 4600
+Wire Wire Line
+	6650 4450 6350 4450
+Wire Wire Line
+	10000 3900 10000 4100
+Wire Wire Line
+	5350 3250 6100 3250
+Wire Wire Line
+	6100 3050 5350 3050
+Wire Wire Line
+	2000 4400 2000 4550
+Wire Wire Line
+	2400 4100 2550 4100
+Wire Wire Line
+	1500 4100 1600 4100
+Wire Wire Line
+	1850 1000 1550 1000
+Wire Wire Line
+	1550 1200 1850 1200
+Wire Wire Line
+	2100 3700 2550 3700
+Wire Wire Line
+	2550 3700 2550 3600
+Wire Wire Line
+	1550 1100 1650 1100
+Wire Wire Line
+	1650 1100 1650 1200
+Connection ~ 1650 1200
+Wire Wire Line
+	1900 3700 1500 3700
+Wire Wire Line
+	9400 4700 9400 5500
+Wire Wire Line
+	9200 3400 9450 3400
+Wire Wire Line
+	9200 3300 9950 3300
+Wire Wire Line
+	9200 3200 9450 3200
+Wire Wire Line
+	9200 3100 9450 3100
+Wire Wire Line
+	9200 2800 9950 2800
+Wire Wire Line
+	9200 2900 9450 2900
+Wire Wire Line
+	9200 2700 9450 2700
+Wire Wire Line
+	9200 2600 9450 2600
+Wire Wire Line
+	1750 2750 1900 2750
+Wire Wire Line
+	1900 2750 1900 2650
+Wire Wire Line
+	6900 2950 6900 3050
+Wire Wire Line
+	6900 2950 7100 2950
+Wire Wire Line
+	2100 2650 2100 2750
+Wire Wire Line
+	2100 2750 2200 2750
+Wire Wire Line
+	6050 3750 6100 3750
+Wire Wire Line
+	5350 3650 6100 3650
+Wire Wire Line
+	5350 3450 6100 3450
+Wire Wire Line
+	7700 3650 6900 3650
+Wire Wire Line
+	7700 3450 6900 3450
+Wire Wire Line
+	7700 4150 6900 4150
+Wire Wire Line
+	6900 3950 7700 3950
+Wire Wire Line
+	5350 3850 6100 3850
+Wire Wire Line
+	6100 4050 5350 4050
+Wire Wire Line
+	3600 1150 3600 1550
+Wire Wire Line
+	4750 1150 4750 1550
+Wire Wire Line
+	3100 1700 3100 1900
+Wire Wire Line
+	3100 1800 3300 1800
+Connection ~ 3100 1800
+Text Notes 8850 7500 2    60   ~ 0
+The Mµseum Raspi Control Board
+Text Notes 10700 7650 2    60   ~ 0
+0.2
 $EndSCHEMATC
