@@ -1,10 +1,10 @@
-coldiameter = 17;
+coldiameter = 40;
 mod = coldiameter;
-ch = mod*9.5;		//column height
+ch = 197.5-20;		//column height
 cr = mod/2;		//column radius
 nf = 20;		//number of flutes
-fr = 1.5;		//flute radius
-fvo = 2; //flute vertical offset 
+fr = 2.5;		//flute radius
+fvo = 5; //flute vertical offset 
 fho = .65; //flute horizontal offset (outwards)
 
 bh = mod/2;  //base height
@@ -17,23 +17,16 @@ cpo = mod/10; // capitol offset
 ctr = cpo*.8;   //capitol torus radius
 has_abacus = 1; //1 for abacus 0 for no abacus
 
-$fs = 1;
+$fa = 5;
+$fs = 0.5;
+
 aa = 6;
 
-scale(1.494){
-	difference(){
-		union(){
-			base();
- 			column();
-			capitol();
-		}
- 		translate([0,-50,-20]){
-			cube([100,100,200]);
-		}
-	}
+module full_column() {
+	base();
+	column();
+	capitol();
 }
-
-echo(ch);
 
 module column() {
 translate([0,0,bh])
@@ -92,11 +85,7 @@ translate([0,0,ch+cph]) {
 		ring(cph,cr+cpo,cr-(bo*1.5),aa);									//basic shape
 		translate([0,0,cph/2]) torus(cr+cpo+.75,ctr*1.5);				//curved inset
 		}
-	translate([0,0,ctr]) torus((cr+cpo)*.95,ctr);									//lower ring
-	translate([0,0,-ctr/16]) ring(cph/4,cr-(bo*1.5),cr-(bo*2.5),aa);			//upper mating ring to column
-	translate([0,0,-ctr*1.5]) ring(cph/4,cr-(bo*1.60),cr-(bo*2.5),aa);		//middle upper mating ring to column
-	translate([0,0,-ctr*3]) ring(cph/4,cr-(bo*1.65),cr-(bo*2.5),aa);			//middle lower mating ring to column
-	translate([0,0,-ctr*4.5]) ring(cph/4,cr-(bo*1.70),cr-(bo*2.5),aa);		//middle lower mating ring to column
+	translate([0,0,ctr]) torus((cr+cpo)*.95,ctr);
 
 	if ( has_abacus == 1 )	{
 		difference() {
