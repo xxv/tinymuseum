@@ -1,4 +1,4 @@
-update=Sun 31 May 2015 01:38:09 AM EDT
+update=Sat 14 May 2016 01:20:50 AM EDT
 version=1
 last_client=kicad
 [cvpcb]
@@ -47,7 +47,7 @@ LibName16=valves
 version=1
 [eeschema]
 version=1
-LibDir=/home/steve/kicad/lib
+LibDir=/home/steve/kicad/lib;../../../../../kicad_sources/library-repos
 [eeschema/libraries]
 LibName1=power
 LibName2=device
