@@ -489,10 +489,6 @@ F 3 "" H 5650 800 60  0000 C CNN
 	1    5650 800 
 	0    -1   -1   0   
 $EndComp
-Text Label 3750 1350 0    60   ~ 0
-12V_GND_SW
-Text Label 5700 1250 0    60   ~ 0
-5V_GND_SW
 $Comp
 L R R1
 U 1 1 557A607D
@@ -692,8 +688,6 @@ F 3 "" H 8050 1000 60  0000 C CNN
 $EndComp
 Text GLabel 7650 1500 0    60   Input ~ 0
 RASPI_GPIO_18
-Text Label 8250 1250 0    60   ~ 0
-12V_GND_SW
 $Comp
 L R R3
 U 1 1 573805AB
@@ -732,4 +726,10 @@ F 3 "" H 8100 800 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 Connection ~ 7800 1500
+Text Label 3650 1200 0    60   ~ 0
+12V_SW_01
+Text Label 5700 1100 0    60   ~ 0
+5V_SW_01
+Text Label 8150 1100 0    60   ~ 0
+12V_SW_02
 $EndSCHEMATC
